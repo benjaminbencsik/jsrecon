@@ -1,39 +1,21 @@
-# jsrecon
+# JSRecon
 
 A fast, single-binary JavaScript analysis tool for bug bounty hunting.
 
-jsrecon extracts endpoints, parameters, and potential secrets from JavaScript files and web pages, making it easier to discover hidden attack surfaces.
-
----
-
-## Features
-
-* Accepts flexible input:
-
-  * Subdomains
-  * URLs
-  * JavaScript files
-* Automatically:
-
-  * Detects and fetches JavaScript files
-  * Extracts endpoints and routes
-  * Extracts parameters
-  * Identifies potential secrets (API keys, tokens)
-* Concurrent processing for speed
-* Clean, deduplicated output
+JSRecon extracts endpoints, parameters, and potential secrets from JavaScript files and web pages.
 
 ---
 
 ## Installation
 
-Copy and paste:
+```bash
+go install github.com/benjaminbencsik/JSRecon@latest
+```
+
+Make sure your Go bin directory is in PATH:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/jsrecon.git
-cd jsrecon
-
-go mod tidy
-go build -o jsrecon
+export PATH=$PATH:~/go/bin
 ```
 
 ---
@@ -41,10 +23,12 @@ go build -o jsrecon
 ## Usage
 
 ```bash
-./jsrecon input.txt
+jsrecon input.txt
 ```
 
-### Example input types
+---
+
+## Input Examples
 
 Subdomains:
 
@@ -64,54 +48,36 @@ JavaScript files:
 
 ```
 https://example.com/app.js
-https://cdn.example.com/main.js
 ```
 
 ---
 
 ## Output
 
-* endpoints.txt → discovered endpoints and routes
-* params.txt → extracted parameters
-* secrets.txt → potential API keys and tokens
+* endpoints.txt
+* params.txt
+* secrets.txt
 
 ---
 
 ## Example Workflow
 
 ```bash
-cat subdomains.txt | httpx -silent > live.txt
-cat live.txt | gau | grep "\.js" | sort -u > js.txt
+cat subs.txt | httpx -silent > live.txt
+cat live.txt | gau | grep "\.js" > js.txt
 
-./jsrecon js.txt
+jsrecon js.txt
 ```
 
 ---
 
 ## Notes
 
-* Output quality depends on input quality
-* Best used as part of a recon pipeline
-* Some detected secrets may be false positives
-
----
-
-## Roadmap
-
-* Concurrency limiting (rate control)
-* Improved endpoint detection
-* Parameter classification (IDOR, SSRF, etc.)
-* Integration with ffuf and nuclei
-* JSON output support
+* Works best with good recon input
+* Some secrets may be false positives
 
 ---
 
 ## License
 
 MIT
-
----
-
-## Contributing
-
-Pull requests and suggestions are welcome.
