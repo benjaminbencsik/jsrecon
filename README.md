@@ -1,8 +1,8 @@
-# JSRecon
+# jsrecon
 
 A fast, single-binary JavaScript analysis tool for bug bounty hunting.
 
-JSRecon extracts endpoints, parameters, and potential secrets from JavaScript files and web pages, making it easier to discover hidden attack surfaces.
+jsrecon extracts endpoints, parameters, and potential secrets from JavaScript files and web pages, making it easier to discover hidden attack surfaces.
 
 ---
 
