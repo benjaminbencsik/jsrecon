@@ -1,3 +1,3 @@
-module github.com/benjaminbencsik/JSRecon
+module github.com/benjaminbencsik/jsrecon
 
 go 1.21
