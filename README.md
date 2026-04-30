@@ -9,7 +9,7 @@ JSRecon extracts endpoints, parameters, and potential secrets from JavaScript fi
 ## Installation
 
 ```bash
-go install github.com/benjaminbencsik/JSRecon@latest
+go install github.com/benjaminbencsik/jsrecon@latest
 ```
 
 Make sure your Go bin directory is in PATH:
